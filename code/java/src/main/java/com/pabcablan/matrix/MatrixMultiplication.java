@@ -11,6 +11,10 @@ public class MatrixMultiplication {
         this.random = new Random();
     }
 
+    public MatrixMultiplication() {
+        this.defaultBlockSize = 32;
+        this.random = new Random();
+    }
 
     public double[][][] generateMatrices(int n) {
         double[][] A = new double[n][n];
@@ -88,5 +92,9 @@ public class MatrixMultiplication {
         }
 
         return C;
+    }
+
+    public double[][] tiled(double[][] A, double[][] B) {
+        return tiled(A, B, null);
     }
 }
