@@ -1,5 +1,5 @@
 import unittest
-import python.matrix.matrix_multiplication as mm
+import code.python.matrix.matrix_multiplication as mm
 
 
 class TestMatrixMultiplication(unittest.TestCase):
