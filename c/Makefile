@@ -1,6 +1,6 @@
 CC = gcc
-CFLAGS = -lm
-WINFLAGS = -lpsapi
+CFLAGS = -O3 -march=native -lm
+WINFLAGS = -O3 -march=native -lpsapi
 
 OUTPUT_DIR_UNIX = ../data/output
 OUTPUT_DIR_WIN = ..\data\output
@@ -19,17 +19,17 @@ endif
 
 all: test benchmark
 
-test: test/matrix/test_matrix_multiplier.c matrix/matrix_multiplier.c matrix/matrix_multiplier.h
-	$(CC) test/matrix/test_matrix_multiplier.c matrix/matrix_multiplier.c -o test_matrix$(EXE) $(CFLAGS)
+test: test/matrix/basic_matrix_multiplier_test.c src/matrix/basic_matrix_multiplier.c src/matrix/basic_matrix_multiplier.h
+	$(CC) test/matrix/basic_matrix_multiplier_test.c src/matrix/basic_matrix_multiplier.c -o test_matrix$(EXE) $(CFLAGS)
 
 run_test: test
 	./test_matrix$(EXE)
 
-benchmark: test/benchmarking/benchmark_matrix_multiplier.c matrix/matrix_multiplier.c matrix/matrix_multiplier.h
+benchmark: test/benchmarking/basic_matrix_multiplier_benchmarking.c src/matrix/basic_matrix_multiplier.c src/matrix/basic_matrix_multiplier.h
 ifeq ($(WIN),1)
-	$(CC) test/benchmarking/benchmark_matrix_multiplier.c matrix/matrix_multiplier.c -o benchmark$(EXE) $(WINFLAGS)
+	$(CC) test/benchmarking/basic_matrix_multiplier_benchmarking.c src/matrix/basic_matrix_multiplier.c -o benchmark$(EXE) $(WINFLAGS)
 else
-	$(CC) test/benchmarking/benchmark_matrix_multiplier.c matrix/matrix_multiplier.c -o benchmark$(EXE) $(CFLAGS)
+	$(CC) test/benchmarking/basic_matrix_multiplier_benchmarking.c src/matrix/basic_matrix_multiplier.c -o benchmark$(EXE) $(CFLAGS)
 endif
 
 run_benchmark: benchmark
@@ -37,10 +37,12 @@ run_benchmark: benchmark
 	./benchmark$(EXE) $(OUTPUT_DIR)
 
 clean:
-	rm -f test_matrix$(EXE) benchmark$(EXE)
 ifeq ($(WIN),1)
-	rm -f $(OUTPUT_DIR_WIN)\summary_c.csv
+	-if exist test_matrix$(EXE) del /Q test_matrix$(EXE)
+	-if exist benchmark$(EXE) del /Q benchmark$(EXE)
+	-if exist $(OUTPUT_DIR_WIN)\summary_c.csv del /Q $(OUTPUT_DIR_WIN)\summary_c.csv
 else
+	rm -f test_matrix$(EXE) benchmark$(EXE)
 	rm -f $(OUTPUT_DIR_UNIX)/summary_c.csv
 endif
 

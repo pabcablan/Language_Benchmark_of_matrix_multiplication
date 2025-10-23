@@ -1,4 +1,4 @@
-#include "matrix_multiplier.h"
+#include "basic_matrix_multiplier.h"
 #include <stdlib.h>
 
 double **allocate_matrix(int n) {

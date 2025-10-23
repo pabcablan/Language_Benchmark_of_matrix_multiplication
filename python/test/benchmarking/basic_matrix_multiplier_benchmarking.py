@@ -3,7 +3,7 @@ import time
 import csv
 import os
 import psutil
-from python.matrix.basic_matrix_multiplier import BasicMatrixMultiplier
+from src.matrix.basic_matrix_multiplier import BasicMatrixMultiplier
 
 def get_process_memory_mb():
     process = psutil.Process(os.getpid())
@@ -49,7 +49,7 @@ def print_average_results(sizes, times, real_memories):
         print("{:<10} {:<15.5f} {:<25.5f}".format(size, avg_time, avg_real_mem))
 
 if __name__ == "__main__":
-    sizes = [128, 256, 512, 1024]
+    sizes = [64, 128, 256, 512, 1024]
     runs = 5
     output_directory = sys.argv[1]
     os.makedirs(output_directory, exist_ok=True)
