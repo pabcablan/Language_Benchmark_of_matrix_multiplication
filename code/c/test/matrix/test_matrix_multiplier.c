@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "../../matrix/matrix_multiplier.c"
+#include "../../matrix/matrix_multiplier.h"
 
 #define DELTA 1e-10
 

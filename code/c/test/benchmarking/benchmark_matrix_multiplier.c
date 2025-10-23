@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <sys/types.h>
-
 #ifdef _WIN32
 #include <windows.h>
 #include <psapi.h>
@@ -21,8 +19,7 @@ double get_process_memory_mb() {
     return (double)usage.ru_maxrss / 1024;
 }
 #endif
-
-#include "../../matrix/matrix_multiplier.c"
+#include "../../matrix/matrix_multiplier.h"
 
 int sizes[] = {128, 256, 512, 1024};
 int runs = 5;
