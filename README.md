@@ -44,7 +44,6 @@ This repository contains the benchmarking code, data, and analysis scripts for a
 │       ├── summary_c.csv                         # Results from C benchmarks
 │       ├── summary_java.csv                      # Results from Java benchmarks
 │       └── summary_python.csv                    # Results from Python benchmarks
-├── results/                                      # Plots and figures generated from results
 ├── LICENSE
 ├── README.md
 ├── .gitignore
