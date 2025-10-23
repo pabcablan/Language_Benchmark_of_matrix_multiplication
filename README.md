@@ -4,7 +4,6 @@
 
 This repository contains the benchmarking code, data, and analysis scripts for a comparative study of matrix multiplication performance in C, Python, and Java. The goal is to evaluate how each language handles computational speed and memory usage when multiplying matrices of various sizes. All code is organized for reproducibility and can be executed directly from the terminal.
 
-
 ## Repository Structure
 
 ```
