@@ -165,46 +165,47 @@ The majority of instructions are designed for execution from the terminal.
 > ```
 > Set these variables to your preferred output directory.
 
+
 ### Python
 
 #### Options for running Python benchmarks and tests
 
-1. Configure Virtual Enviroment
-  ```bash
-  # Create the virtual environment
-  python -m venv venv_bigdata
-  
-  # Activate the virtual environment (Linux/Mac)
-  source venv_bigdata/bin/activate
-  
-  # Activate the virtual environment (Windows)
-  venv_bigdata\Scripts\activate
-  ```
+1. **Configure Virtual Environment**
+```bash
+# Create the virtual environment
+python -m venv venv_bigdata
+
+# Activate the virtual environment (Linux/Mac)
+source venv_bigdata/bin/activate
+
+# Activate the virtual environment (Windows)
+venv_bigdata\Scripts\activate
+```
 
 2. **Install dependencies (recommended: use a virtual environment):**
-    ```bash
-    pip install psutil pandas matplotlib
-    ```
-     
+```bash
+pip install psutil pandas matplotlib
+```
+
 3. **Navigate to the `python/` directory:**
-    ```bash
-    cd python
-    ```
+```bash
+cd python
+```
 
 4. **Run the benchmarking script (recommended method):**
-    ```bash
-    python -m test.benchmarking.basic_matrix_multiplier_benchmarking ../data/output/
-    ```
+```bash
+python -m test.benchmarking.basic_matrix_multiplier_benchmarking ../data/output/
+```
 
 5. **Run the unit tests (optional):**
-    ```bash
-    python -m test.matrix.basic_matrix_multiplier_test
-    ```
+```bash
+python -m test.matrix.basic_matrix_multiplier_test
+```
 
 6. **Plot results:**
-    ```bash
-    python plot_benchmarks.py ../data/output/
-    ```
+```bash
+python plot_benchmarks.py ../data/output/
+```
 > **Note:**  
 > You can specify the output directory for CSV results and plots using command-line arguments. By default, use `../data/output/` to keep all results organized for later analysis.
 
