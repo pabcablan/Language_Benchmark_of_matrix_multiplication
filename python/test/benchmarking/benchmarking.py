@@ -3,7 +3,7 @@ import time
 import csv
 import os
 import psutil
-from code.python.matrix.basic_matrix_multiplier import BasicMatrixMultiplier
+from python.matrix.basic_matrix_multiplier import BasicMatrixMultiplier
 
 def get_process_memory_mb():
     process = psutil.Process(os.getpid())

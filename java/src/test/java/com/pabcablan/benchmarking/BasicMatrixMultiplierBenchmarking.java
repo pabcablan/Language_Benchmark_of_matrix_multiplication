@@ -1,14 +1,19 @@
 package com.pabcablan.benchmarking;
 
-import com.pabcablan.matrix.BasicMatrixMultiplier;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.pabcablan.matrix.BasicMatrixMultiplier;
 
 public class BasicMatrixMultiplierBenchmarking {
 
     public static void main(String[] args) {
-        int[] sizes = {128, 256, 512, 1024, 2048};
+        int[] sizes = {64, 128, 256, 512, 1024};
         int runs = 5;
         String outputDirectory = args[0];
         String outputPath = outputDirectory + "/summary_java.csv";
@@ -25,7 +30,15 @@ public class BasicMatrixMultiplierBenchmarking {
         System.out.println("\nBenchmark finished. Results saved at: " + outputPath);
     }
 
+        private static void ensureOutputDirExists(String outputDir) {
+        File dir = new File(outputDir);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+    }
+
     private static void runBenchmarks(int[] sizes, int runs, Map<Integer, List<Double>> times, Map<Integer, List<Double>> memories, String outputPath) {
+        ensureOutputDirExists(new File(outputPath).getParent());
         try (FileWriter writer = new FileWriter(outputPath)) {
             writer.write("MatrixSize,Run,TimeSeconds,MemoryMB\n");
 

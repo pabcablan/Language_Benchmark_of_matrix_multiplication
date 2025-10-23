@@ -4,5 +4,8 @@ venv_bigdata/
 # .idea
 .idea/
 
+# .vscode
+.vscode/
+
 # target
 target/

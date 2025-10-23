@@ -2,8 +2,8 @@ CC = gcc
 CFLAGS = -lm
 WINFLAGS = -lpsapi
 
-OUTPUT_DIR_UNIX = ../../data/output
-OUTPUT_DIR_WIN = ..\..\data\output
+OUTPUT_DIR_UNIX = ../data/output
+OUTPUT_DIR_WIN = ..\data\output
 
 ifeq ($(OS),Windows_NT)
     EXE = .exe

@@ -1,5 +1,5 @@
 import unittest
-from code.python.matrix.basic_matrix_multiplier import BasicMatrixMultiplier
+from python.matrix.basic_matrix_multiplier import BasicMatrixMultiplier
 
 
 class BasicMatrixMultiplierTest(unittest.TestCase):
